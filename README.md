@@ -1,9 +1,11 @@
 # Exp02-RollABall
 
 ## Aim:
+To develop a 3D application to roll a ball in unity
 ### To develop a 3D application to roll a ball in unity
 
 ## Algorithm:
+## Steps:
 ### Step1: File -> Scene -> Select the scene -> Save as-> New folder(Scenes)-> File name (MiniGame)
 
 ### Step2: Heirarchy -> 3D Object-> Plane 
@@ -25,8 +27,57 @@
 ### Step8: Create a new script -> Create a folder in project (Name: Scripts) Hierarchy -> Player -> Inspector-> AddComponent-> NewScripts-> PlayerController( Click create and Add), Copy the PlayerController and drag to Script folder, Double click the PlayerController file and type the coding
 
 ## Program:
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
+public class RollTheBall : MonoBehaviour
+{
+    public float xforce = 5.0f;
+    public float yforce = 100.0f;
+    public float zforce = 5.0f;    
+    void Start()
+    {
+        
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        float x = 0.0f, y = 0.0f, z = 0.0f;
+        if (Input.GetKey(KeyCode.A))
+        {
+            x = x - xforce;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            x = x + xforce;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            z = z + zforce;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            z = z - zforce;
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            y = y + yforce;
+        }
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            y -= yforce;
+        }
+        GetComponent<Rigidbody>().AddForce(x, y, z);
+    }
+}
+```
 ## Output:
 
+
+![WhatsApp Image 2025-10-28 at 21 42 10_61becc77](https://github.com/user-attachments/assets/8faa95b6-d564-453e-b99c-f2001f4a855a)
+
 ## Result:
+A 3D application to roll a ball in unity is developed
